@@ -11,6 +11,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Register from './components/Register';
 import Products from './components/Products';
+import Team from './components/Team';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,12 @@ const router = createBrowserRouter([
   {
     path:"/produkt",
     element: <Products/>
+  },
+  {
+    
+      path:"/team",
+      element: <Team/>
+
   }
 
 

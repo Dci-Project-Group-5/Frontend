@@ -87,7 +87,9 @@ button:focus-visible {
   }
 }
 
-
+h3 {
+  color: #f9f9f9;
+}
 /* Form */
 #login {
   background-color: #f9f9f9;
@@ -110,6 +112,12 @@ button:focus-visible {
   margin: 0.5rem auto;
   height: 6vh;
  
+}
+#register h2{
+  margin-top: -3rem;
+  font-family: "Rock Salt"; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: "Rock Salt"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: "Rock Salt"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px;
+  
+
 }
 form {
   width: 100%;
@@ -156,16 +164,13 @@ form {
 h2{
   color: #535bf2;
   font-weight: 800;
+
 }
 
 
 /* nav - header */
 
-.nav {
-  display: flex;
-  justify-content: space-between;
- 
-}
+
 
 .btn-anmelden, .btn-register {
   margin-right:2rem ;
@@ -197,12 +202,7 @@ header {
   
 
 }
-.body-item h2 {
- margin-top: 6rem;
- color: white;
 
- 
-}
 .item {
  
   background-repeat: no-repeat;
