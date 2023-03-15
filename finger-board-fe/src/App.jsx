@@ -1,27 +1,18 @@
-import { useState } from 'react'
-import Register from './components/Register'
 
-import './App.css'
-import Home from './components/Home'
-
-
+import "./App.css";
+import Home from "./components/Home";
 
 
 function App() {
-  
+
 
   return (
-    <div className="App">
-   
-      
-     
-      <Home></Home>
- 
-      
-
-      
-    </div>
-  )
+    <UserStates>
+      <div className="App">
+        <Home></Home>
+      </div>
+    </UserStates>
+  );
 }
 
-export default App
+export default App;
