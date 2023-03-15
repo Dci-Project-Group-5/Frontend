@@ -6,7 +6,6 @@ const UserStates = ({ children }) => {
     user: null,
     isAuth: false,
     error: null,
-    users: null,
   });
 
   return (

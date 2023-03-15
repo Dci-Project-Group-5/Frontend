@@ -1,29 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
-
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
+import axios from "axios";
 
 function Login() {
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+  const { state, setState } = useContext(UserContext);
 
-  const handleSubmit = (e) => {
+  const [user, setUser] = useState({ username: "", password: "" });
+
+  const login_URL = "http://localhost:2000/api/v1/user/login";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    try {
+      const { data } = await axios.post(login_URL, user);
+      console.log(data);
+      setState({ ...state, user: data.user, isAuth: true });
+    } catch (error) {
+      console.log(error);
+      setState({ ...state, error: error.response.data.message, isAuth: false });
+      console.log(error.response.data.message);
+    }
   };
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
+  if (state.isAuth) return <Navigate to="/" />;
 
-    setUser(e.target.value);
-
-    setPassword(e.target.value);
-  };
   return (
     <div>
-      {/* ________________form login__________________________________ */}
-
       <div id="login">
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-md space-y-8">
@@ -39,7 +44,7 @@ function Login() {
                 WILLKOMMEN
               </h1>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
               <input type="hidden" name="remember" defaultValue="true" />
               <div className="-space-y-px rounded-md shadow-sm">
                 <div>
@@ -49,8 +54,10 @@ function Login() {
                     required
                     className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Username"
-                    value={user}
-                    onChange={handleChange}
+                    value={user.username}
+                    onChange={(e) =>
+                      setUser({ ...user, username: e.target.value })
+                    }
                   />
                 </div>
                 <div>
@@ -62,15 +69,16 @@ function Login() {
                     required
                     className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Password"
-                    value={password}
-                    onChange={handleChange}
+                    value={user.password}
+                    onChange={(e) =>
+                      setUser({ ...user, password: e.target.value })
+                    }
                   />
                 </div>
               </div>
 
               <div>
                 <button
-                  onClick={handleSubmit}
                   type="submit"
                   className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
@@ -83,6 +91,7 @@ function Login() {
                   Log in
                 </button>
               </div>
+              <div>{state.error}</div>
             </form>
           </div>
         </div>

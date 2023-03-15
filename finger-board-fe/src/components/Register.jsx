@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
+import UserContext from "../context/UserContext";
+import axios from "axios";
 
 function Register() {
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+  const { state, setState } = useContext(UserContext);
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    fullname: "",
+    address: { street: "", housenumber: "", zip: "", city: "" },
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log( password);
-  };
+  const register_URL = "http://localhost:2000/api/v1/user/register";
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-
-    setUser(e.target.value);
-
-    setPassword(e.target.value);
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(register_URL, user);
+      setState({ ...state, user: data.user, isAuth: true });
+      console.log(data.message);
+    } catch (error) {
+      console.log(error);
+      setState({ ...state, error: error.response.data.message, isAuth: false });
+      console.log(error.response.data.message);
+    }
   };
 
   return (
     <div>
-      {/* --------------------------form register ------------------------------------- */}
-
       <div id="register">
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-md space-y-8">
@@ -31,7 +42,7 @@ function Register() {
                 Ich bin neu hier
               </h2>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
               <input type="hidden" name="remember" defaultValue="true" />
               <div className="-space-y-px rounded-md shadow-sm">
                 <div>
@@ -40,6 +51,9 @@ function Register() {
                     required
                     className="info elative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Username"
+                    name="username"
+                    onChange={handleChange}
+                    value={user.username}
                   />
                 </div>
 
@@ -49,15 +63,21 @@ function Register() {
                     required
                     className="info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Vollname"
+                    name="fullname"
+                    onChange={handleChange}
+                    value={user.fullname}
                   />
                 </div>
 
-                <div>
+                {/* <div>
                   <input
                     type="text"
                     required
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Straße"
+                    name="address.street"
+                    onChange={handleChange}
+                    value={user.address.street}
                   />
                 </div>
                 <div>
@@ -66,6 +86,9 @@ function Register() {
                     required
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Hausnummer"
+                    name="housenumber"
+                    onChange={handleChange}
+                    value={user.address.housenumber}
                   />
                 </div>
                 <div>
@@ -74,6 +97,9 @@ function Register() {
                     required
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="PLZ"
+                    name="address.zip"
+                    onChange={handleChange}
+                    value={user.address.zip}
                   />
                 </div>
 
@@ -83,16 +109,21 @@ function Register() {
                     required
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Stadt"
+                    name="address.city"
+                    onChange={handleChange}
+                    value={user.address.city}
                   />
-                </div>
+                </div> */}
 
                 <div>
                   <input
-                    name="email"
                     type="text"
                     required
                     className="info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Email"
+                    name="email"
+                    onChange={handleChange}
+                    value={user.email}
                   />
                 </div>
 
@@ -104,13 +135,14 @@ function Register() {
                     required
                     className="info relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Password"
+                    onChange={handleChange}
+                    value={user.password}
                   />
                 </div>
               </div>
 
               <div>
                 <button
-                  onClick={handleSubmit}
                   type="submit"
                   className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
@@ -122,6 +154,13 @@ function Register() {
                   </span>
                   Weiter <i className="fa-solid fa-right-long"></i>
                 </button>
+              </div>
+              <div>
+                {state.isAuth && (
+                  <div>
+                    <span>{state.user.username} , </span> <span> user saved !</span>
+                  </div>
+                )}
               </div>
             </form>
           </div>
