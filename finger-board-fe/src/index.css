@@ -16,6 +16,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  background-image: linear-gradient(to bottom, rgba(7, 7, 0, 0), rgba(1, 1, 8, 0.5)),url(/img/81m1chz4kQL._AC_SL1500_.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
 }
 
 a {
@@ -28,16 +34,21 @@ a:hover {
 }
 
 body {
-  margin: 0;
+
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+
 }
 
 h1 {
-  font-size: 3.2em;
+
   line-height: 1.1;
+  color: #646cff;
+  font-family: "Rock Salt"; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: "Rock Salt"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: "Rock Salt"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px;
+}
+
+#login h1 {
+  color: #3740ec;
 }
 
 button {
@@ -56,7 +67,11 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px auto -webkit-focus-ring-color;
+}
+
+.btn-back{
+  margin-left: -50rem;
 }
 
 @media (prefers-color-scheme: light) {
@@ -74,22 +89,53 @@ button:focus-visible {
 
 
 /* Form */
+#login {
+  background-color: #f9f9f9;
+  width: 60%;
+  height: 50vh;
+  margin: 4rem auto;
+  border-radius: 20px;
+}
 
+#register {
+  background-color: #f9f9f9;
+  width: 60%;
+  height: 80vh;
+  margin: 4rem auto;
+  border-radius: 20px;
+}
+
+#register input {
+  width: 100%;
+  margin: 0.5rem auto;
+  height: 6vh;
+ 
+}
 form {
   width: 100%;
-  margin: 0 auto;
+  margin: 4rem auto;
 }
-#email-address, #password {
+#username, #password {
   width: 100%;
  margin: 0 auto;
  height: 6vh;
 
 
 }
-#email-address {
+
+#username {
   border-radius: 5px 5px 0 0;
   border: 0.5pt solid grey;
   padding: 0.5em;
+
+}
+
+.info {
+  border: 0.5pt solid grey;
+  padding: 0.5em;
+  width: 40%;
+  margin: 0.2rem auto;
+  height: 6vh;
 
 }
 
@@ -104,6 +150,93 @@ form {
   display: flex;
   justify-content: center;
   color: #f9f9f9;
+  margin: 1rem auto;
+  width: 10rem;
+}
+h2{
+  color: #535bf2;
+  font-weight: 800;
+}
 
-  margin: 1rem;
+
+/* nav - header */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.btn-anmelden, .btn-register {
+  margin-right:2rem ;
+  color: #535bf2;
+  border: 1pt solid #535bf2;
+}
+
+header {
+  
+ display: flex;
+ justify-content: space-between;
+
+
+}
+
+#body{
+  display: flex;
+  margin-top: 18rem;
+  justify-content: space-around;
+  
+}
+
+.body-item {
+  
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  
+
+}
+.body-item h2 {
+ margin-top: 6rem;
+ color: white;
+
+ 
+}
+.item {
+ 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 2s infinite;
+
+}
+.item1{
+  background-image: url(https://thumbs.dreamstime.com/b/vector-text-shop-now-print-sketched-typography-as-label-online-website-promotion-banner-blogger-girl-clothes-souvenir-shoes-115894179.jpg);
+}
+.item2 {
+  background-image: url(https://images.vexels.com/media/users/3/243115/isolated/preview/68e5e8574467c6e1949a455c2c99401a-palabras-individuales-25.png);
+}
+
+.item3 {
+  background-image: url(https://previews.123rf.com/images/artrise/artrise1802/artrise180200091/95638152-coming-soon-hand-written-lettering-modern-calligraphy.jpg);
+ 
+}
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }
