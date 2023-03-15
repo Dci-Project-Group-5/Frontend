@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Products from './components/Products';
 import Team from './components/Team';
+import ProductForm from './components/ProductForm';
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,13 @@ const router = createBrowserRouter([
       path:"/team",
       element: <Team/>
 
-  }
+  },
+  {
+    
+    path:"/addproducts",
+    element: <ProductForm/>
+
+}
 
 
 ]);

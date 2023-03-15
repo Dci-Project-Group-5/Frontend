@@ -1,0 +1,189 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { useState } from "react";
+// import axios from "axios";
+// import defaultImage from "/img/81m1chz4kQL._AC_SL1500_.jpg"
+import { Link } from 'react-router-dom';
+
+function ProductForm() {
+
+
+    // const [frontImage, setFrontImage] = useState(defaultImage);
+    // const [frontImage, setFrontImage] = useState(null);
+
+
+    async function handleSubmit(evt) {
+        evt.preventDefault();
+        console.log('product submit');
+
+/* 
+        let body = {frontImage: frontImage};
+    
+            try {
+                let resp = await axios.post('http://localhost:6000/api/v1/product/saveProduct', {frontImage: frontImage}, {
+                    headers: {"Content-Type" : "application/json"}
+                    // withCredentials: true
+                });
+    
+                console.log(resp);
+
+    
+            } catch (error) {
+                console.error(error);
+                // if (error.response.status === 403) setNotVerified(true);
+                // setErrors([error.response.data.message]);
+            }
+         */
+    }
+
+    function setImage(evt) {
+
+        console.log('file change');
+
+        const file = evt.target.files[0];
+
+        const fileReader = new FileReader();
+
+        fileReader.readAsDataURL(file)
+
+        fileReader.onloadend = (evt) => {
+            const fileData = fileReader.result;
+            setFrontImage(fileData)
+        }
+
+        
+    }
+
+    // console.log(frontImage);
+
+    return (
+        <div id='addProduct' className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-md space-y-8">
+            <div className="btn-back"><Link to= '/'><button><i className="fa-solid fa-arrow-left"></i></button></Link></div>
+                <div>
+                    <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+                        Board hinzufügen
+                    </h2>
+                </div>
+
+                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+
+                    <div className="-space-y-px rounded-md shadow-sm">
+
+                        <div>
+                            <input
+                                id="product-name"
+                                name="product-name"
+                                type="text"
+                                required
+                                className="relative block mb-3 w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                placeholder="Produktname"
+                            />
+                        </div>
+
+                        <div className="flex justify-center">
+                            <div className="mb-3 w-96">
+                                <label
+                                    htmlFor="formFile1"
+                                    className="mb-1 inline-block text-neutral-700 dark:text-neutral-200">
+                                        Bild der Oberseite
+                                </label>
+                                <input
+                                    className="relative block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-neutral-600 bg-clip-padding py-[0.32rem] px-3 text-base font-normal text-neutral-700 dark:text-neutral-200 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 dark:file:bg-neutral-700 file:px-3 file:py-[0.32rem] file:text-neutral-700 dark:file:text-neutral-100 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-primary focus:outline-none"
+                                    type="file"
+                                    accept="image/*"
+                                    id="formFile1"
+                                    // value={frontImage}
+                                    onChange={setImage}
+                                    />
+                            </div>
+                        </div>
+
+                        <div className="flex justify-center">
+                            <div className="mb-3 w-96">
+                                <label
+                                    htmlFor="formFile2"
+                                    className="mb-1 inline-block text-neutral-700 dark:text-neutral-200">
+                                        Bild der Unterseite
+                                </label>
+                                <input
+                                    className="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-neutral-600 bg-clip-padding py-[0.32rem] px-3 text-base font-normal text-neutral-700 dark:text-neutral-200 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 dark:file:bg-neutral-700 file:px-3 file:py-[0.32rem] file:text-neutral-700 dark:file:text-neutral-100 file:transition file:duration-150 file:ease-in-out file:[margin-inline-end:0.75rem] file:[border-inline-end-width:1px] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-[0_0_0_1px] focus:shadow-primary focus:outline-none"
+                                    type="file"
+                                    id="formFile2" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <textarea
+                                id="description"
+                                name="description"
+                                type="text"
+                                required
+                                className="relative mb-3 block w-full rounded border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                placeholder="Produktbeschreibung"
+                            />
+                        </div>
+
+                        <div>
+                            <input
+                                id="wood"
+                                name="wood"
+                                type="text"
+                                required
+                                className="relative mb-3 block w-full rounded border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                placeholder="Holzart"
+                            />
+                        </div>
+
+                        <div>
+                            <input
+                                id="color"
+                                name="color"
+                                type="text"
+                                required
+                                className="relative mb-3 block w-full rounded border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                placeholder="Farbe"
+                            />
+                        </div>
+
+                        <div>
+                            <input
+                                id="size"
+                                name="size"
+                                type="text"
+                                required
+                                className="relative mb-3 block w-full rounded border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                placeholder="Maße in mm"
+                            />
+                        </div>
+
+                        <div>
+                            <input
+                                id="price"
+                                name="price"
+                                type="number"
+                                required
+                                className="relative mb-3 block w-full rounded border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                placeholder="Preis in €"
+                            />
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <button
+                            type="submit"
+                            className="relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                           <Link to= '/produkt'> <h3 className="h3">Hinzufügen</h3></Link>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )
+
+}
+
+
+export default ProductForm

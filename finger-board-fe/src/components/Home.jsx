@@ -22,7 +22,7 @@ function Home () {
             <div id="body">
                 <Link to= '/produkt'><button className='btn-register body-item item item1'></button></Link>
                 <Link to= '/team'><button className='body-item item item2'></button></Link>
-                <Link to= '/produkt'><button className='btn-register body-item item item3'></button></Link>
+                <Link to= '/addproducts'><button className='btn-register body-item item item3'></button></Link>
 
 
 
