@@ -113,8 +113,8 @@ h3 {
   height: 6vh;
  
 }
-#register h2{
-  margin-top: -3rem;
+#register h2, #addProduct h2 {
+  margin-top: -2rem;
   font-family: "Rock Salt"; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: "Rock Salt"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: "Rock Salt"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px;
   
 
@@ -125,8 +125,8 @@ form {
 }
 #username, #password {
   width: 100%;
- margin: 0 auto;
- height: 6vh;
+  margin: 0 auto;
+  height: 6vh;
 
 
 }
@@ -161,7 +161,7 @@ form {
   margin: 1rem auto;
   width: 10rem;
 }
-h2{
+h2 {
   color: #535bf2;
   font-weight: 800;
 
@@ -239,4 +239,15 @@ header {
 		transform: scale(0.95);
 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 	}
+}
+
+
+/* adddddddddddd Product*/
+
+
+#addProduct {
+  background-color: #f9f9f9;
+  width: 80%;
+  margin: 2rem auto;
+  border-radius: 10px;
 }
