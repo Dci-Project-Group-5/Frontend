@@ -16,7 +16,7 @@ function Register() {
     address: { street: "", housenumber: "", zip: "", city: "" },
   });
 
-  const register_URL = "http://localhost:2000/api/v1/user/register";
+  const register_URL = "https://finger-board.onrender.com/api/v1/user/register";
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
