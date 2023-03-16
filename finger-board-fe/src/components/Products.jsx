@@ -2,6 +2,7 @@
 import UserContext from "../context/UserContext";
 import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
+
 function Products() {
     const { state, setState } = useContext(UserContext);
 
