@@ -55,8 +55,10 @@ function Home() {
         <Link to="/produkt">
           <button className="btn-register body-item item item1"></button>
         </Link>
-        <div className="body-item item item2"> </div>
-        <Link to="/produkt">
+        <Link to="/team">
+          <div className="body-item item item2"> </div>
+        </Link>
+        <Link to="/addproducts">
           <button className="btn-register body-item item item3"></button>
         </Link>
       </div>
