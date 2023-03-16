@@ -21,7 +21,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 a {
@@ -190,6 +190,7 @@ header {
   display: flex;
   margin-top: 18rem;
   justify-content: space-around;
+  flex-wrap: wrap;
   
 }
 
@@ -286,6 +287,7 @@ header {
   font-size: 1rem;
 }
 
+
 /* ----------Products-Page---------- */
 
 #productDisplay {
@@ -298,4 +300,243 @@ header {
 /* #productCard {
   height: 600px;
 } */
+.dh-cards {
+  margin-top: 2rem;
+  width: 400px;
+  height: 30vh;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.dh-cards button {
+  border: 1px solid #535bf2;
+  margin: .6rem;
+}
+
+
+
+/* ==================Query================== */
+@media only screen and (min-width: 600px) {
+  
+  /* login */
+  #login .btn-back{
+    margin-left: -16rem;
+  }
+  #login {
+    width: 100%;
+    
+  }
+
+  
+}
+
+
+@media only screen and (max-width: 600px) {
+  /* login */
+  #login .btn-back{
+    margin-left: -12rem;
+    margin-top: 1rem;
+  }
+  #login h1 {
+    font-size: 20px;
+    margin-top: -2rem;
+  }
+ #login {
+  width: 100%;
+ }
+ #login .contain{
+  height: 50vh;
+ }
+
+ #register {
+  width: 100%;
+ }
+ #register .btn-back {
+  margin-left: -11rem;
+
+  }
+  #register .register-container {
+    margin-top: -4rem;
+  }
+  #register .register-container h2 {
+    font-size: 20px;
+  }
+
+
+  /* header */
+
+  #home-container h1{
+    font-size: 25px;
+    margin-bottom: 1rem;
+    
+    
+  }
+  #home-container header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+  }
+  #home-container header button {
+    margin: 0.5rem;
+    width: 8rem;
+    height: 2rem;
+    font-size: 0.8em;
+  }
+
+ /* body */
+  #body {
+  margin: 0.2rem auto;
+  display: flex;
+  flex-direction: column;
+
+  }
+  #body button {
+    width: 100px;
+    height: 100px;
+    margin-top: 1rem;
+    
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+  
+  /* login */
+  #login .btn-back{
+    margin-left: -16rem;
+  }
+  #login {
+    width: 60%;
+   }
+   #login .contain{
+    height: 50vh;
+   }
+   #register .btn-back {
+    margin-left: -26rem;
+    
+  }
+
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  
+  
+  /* login */
+  #login .btn-back{
+    margin-left: -18rem;
+  }
+  #login {
+    width: 50%;
+   }
+   #login .contain{
+    height: 50vh;
+   }
+   #register .btn-back {
+    margin-left: -21rem;
+  
+  }
+  #register .register-container {
+    margin-top: -10rem;
+  }
+  #register .register-container h2 {
+    font-size: 30px;
+  }
+
+  /* header */
+
+  #home-container h1{
+    font-size: 30px;
+    margin: 3rem auto;
+    
+    
+  }
+  #home-container header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+  }
+  #home-container header button {
+    margin: 0.5rem;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1em;
+  }
+
+ /* body */
+  #body {
+  margin: 4rem auto;
+  display: flex;
+
+
+  }
+  #body button {
+    width: 200px;
+    height: 200px;
+    margin-top: 1rem;
+    
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  
+  
+  /* login */
+  #login .btn-back{
+    margin-left: -30rem;
+    
+  }
+  #login {
+    width: 60%;
+   }
+   #login .contain{
+    height: 50vh;
+   }
+
+/* register */
+
+  #register .btn-back {
+    margin-left: -26rem;
+    
+  }
+  #register .btn-back button{
+
+    margin-top: 5rem;
+
+  }
+  #register .register-container {
+    margin-top: -10rem;
+  }
+  #register .register-container h2 {
+    font-size: 40px;
+  }
+
+
+   /* header */
+
+  #home-container h1{
+    font-size: 60px;
+    margin: 3rem auto;
+    
+    
+  }
+  #home-container header{
+    display: flex;
+  
+  }
+  #home-container header button {
+    margin: 0.5rem;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1em;
+  }
+
+}
+
+
 

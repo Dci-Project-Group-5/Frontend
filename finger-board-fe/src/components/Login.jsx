@@ -10,7 +10,9 @@ function Login() {
 
   const [user, setUser] = useState({ username: "", password: "" });
 
-  const login_URL = "http://localhost:8080/api/v1/user/login";
+
+  const login_URL = "https://finger-board.onrender.com/api/v1/user/login";
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +32,7 @@ function Login() {
   return (
     <div>
       <div id="login">
-        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 contain">
           <div className="w-full max-w-md space-y-8">
             <div className="btn-back">
               <Link to="/">

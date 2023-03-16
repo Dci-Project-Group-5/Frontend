@@ -1,9 +1,15 @@
+
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ProductCard } from "./ProductCard.jsx";
 
+
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
+import { Link, Navigate } from "react-router-dom";
 function Products() {
+
 
 
     const [products, setProducts] = useState([]);
@@ -65,6 +71,7 @@ function Products() {
                 
             </div>
 
+ 
         </div>
     )
 }

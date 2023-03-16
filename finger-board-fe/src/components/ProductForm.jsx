@@ -37,7 +37,7 @@ function ProductForm() {
         console.log(body);
     
             try {
-                let resp = await axios.post('http://localhost:8080/api/v1/product/saveProduct', body, {
+                let resp = await axios.post('https://finger-board.onrender.com/api/v1/product/saveProduct', body, {
                     headers: {"Content-Type" : "application/json"}
                     // withCredentials: true
                 });

@@ -9,7 +9,9 @@ function Home() {
   const { state, setState } = useContext(UserContext);
 
   const logout = async () => {
-    const uri = "http://localhost:8080/api/v1/user/logout";
+
+    const uri = "https://finger-board.onrender.com/api/v1/user/logout";
+
     try {
       await axios.get(uri);
       setState({ ...state, isAuth: false });
@@ -58,7 +60,7 @@ function Home() {
           <button className="btn-register body-item item item1"></button>
         </Link>
         <Link to="/team">
-          <div className="body-item item item2"> </div>
+          <button className="btn-register  body-item item item2"> </button>
         </Link>
         <Link to="/addproducts">
           <button 
