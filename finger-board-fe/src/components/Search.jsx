@@ -1,13 +1,9 @@
-
-
-
-function Search () {
-    return (
-        <div>
-            <input type="text" /> <label htmlFor="">Suchen</label>
-        </div>
-    )
+function Search() {
+  return (
+    <div>
+      <input type="text" /> <label htmlFor="">Suchen</label>
+    </div>
+  );
 }
 
-
-export default Search
+export default Search;
