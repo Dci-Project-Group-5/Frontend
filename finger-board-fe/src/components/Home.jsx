@@ -9,7 +9,7 @@ function Home() {
   const { state, setState } = useContext(UserContext);
 
   const logout = async () => {
-    const uri = "http://localhost:2000/api/v1/user/logout";
+    const uri = "https://finger-board.onrender.com/api/v1/user/logout";
     try {
       await axios.get(uri);
       setState({ ...state, isAuth: false });
