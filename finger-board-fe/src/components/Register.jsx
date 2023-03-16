@@ -16,11 +16,19 @@ function Register() {
     address: { street: "", housenumber: "", zip: "", city: "" },
   });
 
+
+
   const register_URL = "https://finger-board.onrender.com/api/v1/user/register";
+
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+
+  const handleChangeAddress = (e) => {
+    setUser({ ...user, address: { ...user.address, [e.target.name]: e.target.value } });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -87,14 +95,14 @@ function Register() {
                   />
                 </div>
 
-                {/* <div>
+                <div>
                   <input
                     type="text"
                     required
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Straße"
-                    name="address.street"
-                    onChange={handleChange}
+                    name="street"
+                    onChange={handleChangeAddress}
                     value={user.address.street}
                   />
                 </div>
@@ -105,7 +113,7 @@ function Register() {
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Hausnummer"
                     name="housenumber"
-                    onChange={handleChange}
+                    onChange={handleChangeAddress}
                     value={user.address.housenumber}
                   />
                 </div>
@@ -115,8 +123,8 @@ function Register() {
                     required
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="PLZ"
-                    name="address.zip"
-                    onChange={handleChange}
+                    name="zip"
+                    onChange={handleChangeAddress}
                     value={user.address.zip}
                   />
                 </div>
@@ -127,11 +135,11 @@ function Register() {
                     required
                     className=" info relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="Stadt"
-                    name="address.city"
-                    onChange={handleChange}
+                    name="city"
+                    onChange={handleChangeAddress}
                     value={user.address.city}
                   />
-                </div> */}
+                </div>
 
                 <div>
                   <input

@@ -1,30 +1,65 @@
 
-import UserContext from "../context/UserContext";
-import { useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom"
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { ProductCard } from "./ProductCard.jsx";
+
 function Products() {
-    const { state, setState } = useContext(UserContext);
 
-  const logout = async () => {
-    const uri = "http://localhost:2000/api/v1/user/logout";
-    try {
-      await axios.get(uri);
-      setState({ ...state, isAuth: false });
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  const handleLogout = () => {
-    logout();
-    return <Navigate to="/" />;
-  };
+
+    const [products, setProducts] = useState([]);
+    const [hasMounted, setHasMounted] = useState(false);
+
+    useEffect(() => {
+        if (hasMounted) {
+
+            async function getProducts() {
+
+                try {
+                    const resp = await axios.get('https://finger-board.onrender.com/api/v1/product/getProducts')
+                    setProducts(resp.data.products);
+    
+                } catch (error) {
+                    console.log(error)
+                }
+            };
+
+            getProducts()
+
+        } else {
+          setHasMounted(true);
+        }
+      }, [hasMounted, products]);
+
+
+    // useEffect(() => {
+    //     async function getProducts() {
+
+    //         try {
+    //             const resp = await axios.get('http://localhost:8080/api/v1/product/getProducts')
+    //             setProducts(resp.data.products);
+
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     };
+
+    //     getProducts()
+    // }, []);
+
+
+
+    const productCards = products.map(product => {
+        return <ProductCard product={product}/>
+    })
+
 
     return (
         <div>
             <header>
                 <div>
-                    <h1>Finger Board Shop</h1>
+                <Link to='/'><h1>Finger Board Shop</h1></Link>
                 </div>
                 <div>
                 {state.isAuth ? (
@@ -49,18 +84,19 @@ function Products() {
                 </div>
             </header>
 
-            <main>
-              
+           
 
+           
 
-  
-
-
-            </main>
             
-        
-        
-        
+
+            <div id="productDisplay" className="flex justify-evenly p-5">
+
+                {products.length > 0 ? productCards : null }
+                
+            </div>
+
+ 
         </div>
     )
 }
