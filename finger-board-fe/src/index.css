@@ -259,16 +259,29 @@ header {
 #team-member {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 90%;
+  margin: 2rem auto;
+  flex-wrap: wrap;
 
 }
 .member {
   margin-top: 2rem;
-  width: 120%;
+  width: 300px;
   height: 50vh;
   background-color: #f9f9f9;
   border-radius: 10px;
 }
 .member img {
   margin: 2rem auto;
+}
+
+.icon-link{
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem auto;
+  width: 50%;
+}
+
+.icon-link i {
+  font-size: 1rem;
 }
