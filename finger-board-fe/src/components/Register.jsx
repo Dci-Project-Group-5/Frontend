@@ -46,7 +46,14 @@ function Register() {
   return (
     <div>
       <div id="register">
-        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="btn-back">
+              <Link to="/">
+                  <button>
+                    <i className="fa-solid fa-arrow-left"></i>
+                  </button>
+              </Link>
+        </div>
+        <div className=" register-container flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-md space-y-8">
             <div>
               <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
@@ -163,7 +170,7 @@ function Register() {
                       aria-hidden="true"
                     />
                   </span>
-                  Weiter <i className="fa-solid fa-right-long"></i>
+                  Weiter
                 </button>
               </div>
               <div>
