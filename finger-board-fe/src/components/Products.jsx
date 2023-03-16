@@ -1,7 +1,6 @@
 
 
-import UserContext from "../context/UserContext";
-import { useContext } from "react";
+
 import { Link, Navigate } from "react-router-dom";
 
 import { useState, useEffect } from "react";
@@ -75,9 +74,6 @@ function Products() {
 
            
 
-           
-
-            
 
             <div id="productDisplay" className="flex justify-evenly p-5">
 
