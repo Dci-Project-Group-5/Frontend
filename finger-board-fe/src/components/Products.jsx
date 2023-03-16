@@ -1,13 +1,17 @@
-
+import React, { useContext } from "react";
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ProductCard } from "./ProductCard.jsx";
+import UserContext from "../context/UserContext";
+
+
 
 function Products() {
 
+  const { state, setState } = useContext(UserContext);
 
-
+    
     const [products, setProducts] = useState([]);
     const [hasMounted, setHasMounted] = useState(false);
 
