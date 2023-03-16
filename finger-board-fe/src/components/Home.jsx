@@ -64,7 +64,7 @@ function Home() {
         </Link>
         <Link to="/addproducts">
           <button 
-          // disabled={state.user === null || state.user.role !== 'admin' ? true : false} 
+          disabled={state.user === null || state.user.role !== 'admin' ? true : false} 
           className="btn-register body-item item item3 disabled:opacity-40"></button>
         </Link>
       </div>

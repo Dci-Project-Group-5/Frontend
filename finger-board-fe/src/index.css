@@ -300,18 +300,43 @@ header {
 /* #productCard {
   height: 600px;
 } */
-.dh-cards {
-  margin-top: 2rem;
-  width: 400px;
-  height: 30vh;
+.dashboard-container h1 {
   background-color: #f9f9f9;
-  border-radius: 10px;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 30px;
+  border: 2pt solid black;
+
 }
 
 .dh-cards button {
   border: 1px solid #535bf2;
   margin: .6rem;
 }
+.user-db{
+  margin-top: 3rem;
+  padding-top: 1rem;
+}
+.bg-white{
+  width: 50%;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 10px;
+}
+.card-db {
+ width: 100%;
+ margin-top: 3rem;
+}
+.dashboard-container .member {
+  height: auto;
+  margin: 0 auto;
+}
+.link-db{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
 
 
 
