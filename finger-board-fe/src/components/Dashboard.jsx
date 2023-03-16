@@ -8,12 +8,34 @@ function Dashboard() {
   if (!state.isAuth) {
     return <Navigate to="/" />;
   }
+  const { username, email, password, _id } = state.user;
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <div> Hello , {state.user.username} welcome to Dashboard!</div>
-      <NavLink to="/">Home</NavLink>
+    <div className="dashboard-container">
+      <NavLink to="/">
+        <h1>Dashboard</h1>{" "}
+      </NavLink>
+      <h4> Hi , {username} welcome to the Dashboard!</h4>
+      <div className="dh-cards ">
+        <h4>USER DATEN</h4>
+        <div>user_id : {_id}</div>
+        <div>
+          username :{username}
+          <button>ändern</button>
+        </div>
+        <div>
+          email : {email}
+          <button>ändern</button>
+        </div>
+        <div>
+          password : ***************<button>ändern</button>
+        </div>
+      </div>
+
+      <div className="member">
+        <h4>BESTELLUNGEN</h4>
+        <div>Du hast noch keine Bestellung!</div>
+      </div>
     </div>
   );
 }
