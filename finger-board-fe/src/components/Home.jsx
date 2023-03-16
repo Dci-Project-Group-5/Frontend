@@ -9,7 +9,9 @@ function Home() {
   const { state, setState } = useContext(UserContext);
 
   const logout = async () => {
+
     const uri = "https://finger-board.onrender.com/api/v1/user/logout";
+
     try {
       await axios.get(uri);
       setState({ ...state, isAuth: false });
@@ -22,6 +24,8 @@ function Home() {
     logout();
     return <Navigate to="/" />;
   };
+
+  console.log(state.user);
 
   return (
     <div id="home-container">
@@ -59,7 +63,9 @@ function Home() {
           <button className="btn-register  body-item item item2"> </button>
         </Link>
         <Link to="/addproducts">
-          <button className="btn-register body-item item item3"></button>
+          <button 
+          // disabled={state.user === null || state.user.role !== 'admin' ? true : false} 
+          className="btn-register body-item item item3 disabled:opacity-40"></button>
         </Link>
       </div>
     </div>

@@ -17,7 +17,9 @@ function Register() {
   });
 
 
+
   const register_URL = "https://finger-board.onrender.com/api/v1/user/register";
+
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });

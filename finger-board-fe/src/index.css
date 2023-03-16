@@ -276,7 +276,7 @@ header {
   margin: 2rem auto;
 }
 
-.icon-link{
+.icon-link {
   display: flex;
   justify-content: space-around;
   margin: 1rem auto;
@@ -288,6 +288,18 @@ header {
 }
 
 
+/* ----------Products-Page---------- */
+
+#productDisplay {
+  width: 100%;
+  height: 600px;
+  margin-top: 100px;
+  background-color: #213547;
+}
+
+/* #productCard {
+  height: 600px;
+} */
 .dh-cards {
   margin-top: 2rem;
   width: 400px;
@@ -525,5 +537,6 @@ header {
   }
 
 }
+
 
 
