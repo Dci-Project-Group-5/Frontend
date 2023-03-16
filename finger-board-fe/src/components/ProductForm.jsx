@@ -81,7 +81,7 @@ function ProductForm() {
             <div className="btn-back"><Link to= '/'><button><i className="fa-solid fa-arrow-left"></i></button></Link></div>
                 <div>
                     <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                        Board hinzufügen
+                        BOARD HINZUFÜGEN
                     </h2>
                 </div>
 

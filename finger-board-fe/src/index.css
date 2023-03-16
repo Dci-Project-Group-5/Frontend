@@ -290,32 +290,21 @@ header {
 
 
 /* ==================Query================== */
-@media only screen and (min-width: 600px) {
-  
-  /* login */
-  #login .btn-back{
-    margin-left: -16rem;
-  }
-  #login {
-    width: 100%;
-    
-  }
 
-  
-}
 
 
 @media only screen and (max-width: 600px) {
+  
   /* login */
   #login .btn-back{
-    margin-left: -12rem;
+    margin-left: -10rem;
     margin-top: 1rem;
   }
   #login h1 {
     font-size: 20px;
     margin-top: -2rem;
   }
- #login {
+ #login .contain {
   width: 100%;
  }
  #login .contain{
@@ -326,7 +315,7 @@ header {
   width: 100%;
  }
  #register .btn-back {
-  margin-left: -11rem;
+  margin-left: -10rem;
 
   }
   #register .register-container {
@@ -340,7 +329,7 @@ header {
   /* header */
 
   #home-container h1{
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 1rem;
     
     
@@ -374,37 +363,58 @@ header {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px)  {
   
+  #addProduct {
+    width: 100%;
+  }
+  #addProduct h2 {
+    font-size: 21px;
+  }
+  #addProduct .btn-back{
+    margin-left: -20rem;
+  }
   
   /* login */
   #login .btn-back{
-    margin-left: -16rem;
+    margin-left: -13rem;
   }
   #login {
-    width: 60%;
+    width: 100%;
    }
    #login .contain{
     height: 50vh;
    }
    #register .btn-back {
-    margin-left: -26rem;
+    margin-left: -22rem;
     
   }
 
 
 }
 
+
+
+
+
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  
+@media only screen and (max-width: 768px)  {
+  #addProduct {
+    width: 100%;
+  }
+  #addProduct h2 {
+    font-size: 23px;
+  }
+  #addProduct .btn-back{
+    margin-left: -20rem;
+  }
   
   /* login */
   #login .btn-back{
-    margin-left: -18rem;
+    margin-left: -16rem;
   }
   #login {
-    width: 50%;
+    width: 100%;
    }
    #login .contain{
     height: 50vh;
@@ -423,10 +433,12 @@ header {
   /* header */
 
   #home-container h1{
-    font-size: 30px;
-    margin: 3rem auto;
-    
-    
+    font-size: 25px;
+    border: 1pt solid black;
+    background-color: #f9f9f9;
+    padding: 7px;
+    border-radius: 10px;
+    color: black;
   }
   #home-container header{
     display: flex;
@@ -449,16 +461,49 @@ header {
 
   }
   #body button {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     margin-top: 1rem;
     
   }
 }
+@media only screen and (min-width: 768px) and (max-width: 992px)  {
+  #home-container h1{
+    font-size: 25px;
+    border: 1pt solid black;
+    background-color: #f9f9f9;
+    padding: 7px;
+    border-radius: 10px;
+    color: black;
+  }
+  header button {
+    font-size: 10px;
+  }
+  #body {
+    margin-top: 10rem;
+  }
 
+  #body button {
+    width: 150px;
+    height: 150px;
+  }
+
+  #register .register-container {
+    margin-top: -7rem;
+  }
+
+}
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  
+  #addProduct {
+    width: 60%;
+  }
+  #addProduct h2 {
+    font-size: 30px;
+  }
+  #addProduct .btn-back{
+    margin-left: -30rem;
+  }
   
   /* login */
   #login .btn-back{
@@ -484,7 +529,7 @@ header {
 
   }
   #register .register-container {
-    margin-top: -10rem;
+    margin-top: -7rem;
   }
   #register .register-container h2 {
     font-size: 40px;
@@ -494,8 +539,8 @@ header {
    /* header */
 
   #home-container h1{
-    font-size: 60px;
-    margin: 3rem auto;
+    font-size: 40px;
+
     
     
   }
@@ -509,6 +554,8 @@ header {
     height: 3rem;
     font-size: 1em;
   }
-
+  #body{
+    margin-top: 14rem;
+  }
 }
 

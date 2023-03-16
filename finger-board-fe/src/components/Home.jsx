@@ -33,7 +33,7 @@ function Home() {
           {state.isAuth ? (
             <Link to="/dashboard">
               <button className="btn-register">
-                Dashboard<div>{state.user.username}</div>
+              <i className="fa-solid fa-user"></i><span> {state.user.username}</span>
               </button>
               <button onClick={handleLogout} className="btn-register">
                 Logout
