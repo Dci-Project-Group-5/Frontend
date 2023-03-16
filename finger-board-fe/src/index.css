@@ -288,6 +288,20 @@ header {
 }
 
 
+.dh-cards {
+  margin-top: 2rem;
+  width: 400px;
+  height: 30vh;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.dh-cards button {
+  border: 1px solid #535bf2;
+  margin: .6rem;
+}
+
+
 
 /* ==================Query================== */
 @media only screen and (min-width: 600px) {
@@ -511,4 +525,5 @@ header {
   }
 
 }
+
 
