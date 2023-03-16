@@ -4,10 +4,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { ProductCard } from "./ProductCard.jsx";
 
-
-import UserContext from "../context/UserContext";
-import { useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
 function Products() {
 
 
@@ -21,7 +17,7 @@ function Products() {
             async function getProducts() {
 
                 try {
-                    const resp = await axios.get('http://localhost:8080/api/v1/product/getProducts')
+                    const resp = await axios.get('https://finger-board.onrender.com/api/v1/product/getProducts')
                     setProducts(resp.data.products);
     
                 } catch (error) {
