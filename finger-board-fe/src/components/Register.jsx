@@ -3,6 +3,7 @@ import { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import UserContext from "../context/UserContext";
 import axios from "axios";
+import { useNavigate, Navigate, redirect } from "react-router-dom";
 
 function Register() {
   const { state, setState } = useContext(UserContext);
@@ -24,6 +25,7 @@ function Register() {
     try {
       const { data } = await axios.post(register_URL, user);
       setState({ ...state, user: data.user, isAuth: true });
+
       console.log(data.message);
     } catch (error) {
       console.log(error);
@@ -31,7 +33,15 @@ function Register() {
       console.log(error.response.data.message);
     }
   };
-
+  const navigate = useNavigate();
+  if (state.isAuth) {
+    console.log("setTime");
+    setTimeout(() => {
+      navigate("/");
+      console.log("setTime log");
+    }, 3000);
+  }
+  // return <Navigate to="/" />;
   return (
     <div>
       <div id="register">
@@ -158,7 +168,8 @@ function Register() {
               <div>
                 {state.isAuth && (
                   <div>
-                    <span>{state.user.username} , </span> <span> user saved !</span>
+                    <span>{state.user.username} , </span>{" "}
+                    <span> user saved !</span>
                   </div>
                 )}
               </div>
