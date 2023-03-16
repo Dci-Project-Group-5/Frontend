@@ -21,14 +21,14 @@ function Dashboard() {
         <div>user_id : {_id}</div>
         <div>
           username :{username}
-          <button>ändern</button>
+          <button>edit</button>
         </div>
         <div>
           email : {email}
-          <button>ändern</button>
+          <button>edit</button>
         </div>
         <div>
-          password : ***************<button>ändern</button>
+          password : ***************<button>edit</button>
         </div>
       </div>
 
