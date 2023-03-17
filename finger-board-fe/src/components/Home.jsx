@@ -25,7 +25,6 @@ function Home() {
     return <Navigate to="/" />;
   };
 
-  console.log(state.user);
 
   return (
     <div id="home-container">
