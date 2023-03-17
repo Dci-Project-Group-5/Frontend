@@ -18,7 +18,7 @@ function Login() {
     e.preventDefault();
     try {
       const { data } = await axios.post(login_URL, user);
-      console.log(data);
+      console.log(data.message);
       setState({ ...state, user: data.user, isAuth: true });
     } catch (error) {
       console.log(error);
