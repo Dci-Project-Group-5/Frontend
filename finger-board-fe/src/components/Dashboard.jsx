@@ -26,9 +26,7 @@ function Dashboard() {
         <NavLink to="/">
           <h1>Dashboard</h1>{" "}
         </NavLink>
-        <NavLink to="/">
-          <button>Home</button>{" "}
-        </NavLink>
+        
 
       </div>
    

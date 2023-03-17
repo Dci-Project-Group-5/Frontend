@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 
-function Team() {
-  return (
-    <div id="team-container">
-      <div className="logo">
-        <Link to="/">
-          <h1>Finger Board Shop</h1>
-        </Link>
-      </div>
+
+function Team () {
+    return (
+        <div id="team-container">
+            <div className="logo">
+            <Link to='/'><h1>Finger Board Team</h1></Link> 
+
 
       <div id="team-member">
         <div className="member item">
