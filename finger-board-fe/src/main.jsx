@@ -13,6 +13,7 @@ import UserStates from "./context/UserStates";
 
 import Team from "./components/Team";
 import ProductForm from "./components/ProductForm";
+import UserEditForm from "./components/UserEditForm";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/editform",
+    element: <UserEditForm />,
   },
 ]);
 

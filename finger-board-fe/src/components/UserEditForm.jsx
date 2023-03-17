@@ -83,7 +83,7 @@ function UserEditForm() {
                         <div className="w-full max-w-md space-y-8">
                             <div>
                                 <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                                    Ich bin neu hier
+                                   Edit
                                 </h2>
                             </div>
                             <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -174,18 +174,21 @@ function UserEditForm() {
                                 </div>
 
                                 <div>
+                                <Link to="/dashboard">
                                     <button
                                         type="submit"
                                         className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    >
+                                    > Weiter
                                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                             <LockClosedIcon
                                                 className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
                                                 aria-hidden="true"
                                             />
                                         </span>
-                                        Weiter
+                                        
+                                           
                                     </button>
+                                        </Link>
                                 </div>
                                 <div>
                                     {updated && (
