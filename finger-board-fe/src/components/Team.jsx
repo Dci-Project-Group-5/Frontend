@@ -4,7 +4,7 @@ function Team () {
     return (
         <div id="team-container">
             <div className="logo">
-            <Link to='/'><h1>Finger Board Shop</h1></Link> 
+            <Link to='/'><h1>Finger Board Team</h1></Link> 
 
             </div>
             
