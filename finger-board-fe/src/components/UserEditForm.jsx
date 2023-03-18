@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
@@ -12,23 +12,15 @@ function UserEditForm() {
     const { state, setState } = useContext(UserContext);
     const [updated, setUpdated] = useState(false)
     const [user, setUser] = useState({
-        id: state.user._id,
-        username: state.user.username,
-        password: '*nonsense*',
-        email: state.user.email,
-        fullname: state.user.fullname,
-        address: {
-            street: state.user.address.street,
-            housenumber: state.user.address.housenumber,
-            zip: state.user.address.zip,
-            city: state.user.address.city
-        }
+        ...state.user, password : ''
     });
 
 
 
-    const update_URL = "https://finger-board.onrender.com/api/v1/user/update";
-    // const update_URL = "http://localhost:8080/api/v1/user/update";
+
+
+    //const update_URL = "https://finger-board.onrender.com/api/v1/user/update";
+    const update_URL = "http://localhost:8080/api/v1/user/update";
 
 
     const handleChange = (e) => {
@@ -45,25 +37,25 @@ function UserEditForm() {
         e.preventDefault();
 
         try {
-            // const data = await axios.put(update_URL, user);
-            // setState({ ...state, user: data.user });
-            console.log(state);
-            setUpdated(true)
+            const { data } = await axios.put(update_URL, user);
+            setState({ ...state, user: data.user });
+            console.log(data);
+            setUpdated(true);
 
-
-            //console.log(data.message);
         } catch (error) {
             console.log(error);
+            setError(error.response.data.message);
             setState({ ...state, error: error.response.data.errors });
             console.log(error.response.data.errors);
-        }
+        };
     };
 
-
+    const navigate = useNavigate();
     if (updated) {
         console.log("setTime");
         setTimeout(() => {
             setUpdated(false);
+            navigate("/dashboard");
             console.log("setTime log");
         }, 3000);
     }
@@ -84,7 +76,7 @@ function UserEditForm() {
                         <div className="w-full max-w-md space-y-8">
                             <div>
                                 <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                                   Edit
+                                    Edit
                                 </h2>
                             </div>
                             <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -173,13 +165,15 @@ function UserEditForm() {
                                     </div>
 
                                     <div>
+                                        <label className="" htmlFor="password">Trage hier dein altes oder neues Passwort ein</label>
                                         <input
+                                        id="password"
                                             name="password"
                                             type="password"
                                             autoComplete="current-password"
                                             required
                                             className="info relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                            placeholder="Password"
+                                            placeholder="Passwort"
                                             onChange={handleChange}
                                             value={user.password}
                                         />
@@ -188,7 +182,7 @@ function UserEditForm() {
                                 </div>
 
                                 <div>
-                                <Link to="/dashboard">
+
                                     <button
                                         type="submit"
                                         className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -199,10 +193,10 @@ function UserEditForm() {
                                                 aria-hidden="true"
                                             />
                                         </span>
-                                        
-                                           
+
+
                                     </button>
-                                        </Link>
+
                                 </div>
                                 <div>
                                     {updated && (

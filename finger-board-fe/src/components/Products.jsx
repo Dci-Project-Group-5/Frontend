@@ -6,6 +6,7 @@ import { ProductCard } from "./ProductCard.jsx";
 import UserContext from "../context/UserContext";
 
 function Products() {
+
   const { state, setState } = useContext(UserContext);
 
   const [products, setProducts] = useState([]);
@@ -32,8 +33,8 @@ function Products() {
   }, [hasMounted, products]);
 
   const logout = async () => {
-    const logout_uri = "https://finger-board.onrender.com/api/v1/user/logout";
-    //const logout_uri = "http://localhost:8080/api/v1/user/logout";
+    //const logout_uri = "https://finger-board.onrender.com/api/v1/user/logout";
+    const logout_uri = "http://localhost:8080/api/v1/user/logout";
 
     try {
       await axios.get(logout_uri);

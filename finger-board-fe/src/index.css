@@ -71,6 +71,7 @@ button:focus-visible {
 
 .btn-back{
   margin-left: -50rem;
+  
 }
 
 @media (prefers-color-scheme: light) {
@@ -112,6 +113,13 @@ h3 {
   height: 6vh;
  
 }
+
+#register label {
+  color: red;
+  margin-top: 100px;
+  
+}
+
 #register h2, #addProduct h2 {
   margin-top: -2rem;
   font-family: "Rock Salt"; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: "Rock Salt"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: "Rock Salt"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: "Rock Salt"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px;
@@ -256,6 +264,7 @@ header {
 #team-container {
 
 }
+
 #team-member {
   display: flex;
   justify-content: space-around;
@@ -508,6 +517,7 @@ header {
     
   }
 
+  
 
 
   /* header */

@@ -18,8 +18,8 @@ function Register() {
 
 
 
-  const register_URL = "https://finger-board.onrender.com/api/v1/user/register";
-  //const register_URL = "http://localhost:8080/api/v1/user/register";
+  //const register_URL = "https://finger-board.onrender.com/api/v1/user/register";
+  const register_URL = "http://localhost:8080/api/v1/user/register";
 
 
   const handleChange = (e) => {
@@ -30,23 +30,12 @@ function Register() {
     setUser({ ...user, address: { ...user.address, [e.target.name]: e.target.value } });
   };
 
-  // const clearInputs = () => {
-  //   setUser({
-  //     username: "",
-  //     email: "",
-  //     password: "",
-  //     fullname: "",
-  //     address: { street: "", housenumber: "", zip: "", city: "" }
-  //   })
-  // }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(register_URL, user);
       setState({ ...state, user: data.user, isAuth: true });
-      //clearInputs();
 
       console.log(data.message);
     } catch (error) {
