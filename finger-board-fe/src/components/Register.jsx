@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate, Navigate, redirect } from "react-router-dom";
 
 function Register() {
+
   const { state, setState } = useContext(UserContext);
   const [user, setUser] = useState({
     username: "",
@@ -14,6 +15,7 @@ function Register() {
     password: "",
     fullname: "",
     address: { street: "", housenumber: "", zip: "", city: "" },
+    orders: []
   });
 
 
