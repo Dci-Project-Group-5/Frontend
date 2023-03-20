@@ -10,17 +10,17 @@ function UserEditForm() {
 
 
     const { state, setState } = useContext(UserContext);
-    const [updated, setUpdated] = useState(false)
+    const [updated, setUpdated] = useState(false);
     const [user, setUser] = useState({
-        ...state.user, password : ''
+        ...state.user
     });
 
 
 
 
 
-    //const update_URL = "https://finger-board.onrender.com/api/v1/user/update";
-    const update_URL = "http://localhost:8080/api/v1/user/update";
+    const update_URL = "https://finger-board.onrender.com/api/v1/user/update";
+    //const update_URL = "http://localhost:8080/api/v1/user/update";
 
 
     const handleChange = (e) => {
@@ -39,14 +39,12 @@ function UserEditForm() {
         try {
             const { data } = await axios.put(update_URL, user);
             setState({ ...state, user: data.user });
-            console.log(data);
             setUpdated(true);
 
         } catch (error) {
             console.log(error);
-            setError(error.response.data.message);
-            setState({ ...state, error: error.response.data.errors });
-            console.log(error.response.data.errors);
+            setState({ ...state, error: error.response.data.message });
+            console.log(error.response.data.message);
         };
     };
 
@@ -165,9 +163,9 @@ function UserEditForm() {
                                     </div>
 
                                     <div>
-                                        <label className="" htmlFor="password">Trage hier dein altes oder neues Passwort ein</label>
+                                        <label className="" htmlFor="password">Passwort eingeben um Änderungen zu abzuschicken</label>
                                         <input
-                                        id="password"
+                                            id="password"
                                             name="password"
                                             type="password"
                                             autoComplete="current-password"
@@ -178,6 +176,8 @@ function UserEditForm() {
                                             value={user.password}
                                         />
                                     </div>
+
+                                    <div>{state.error}</div>
 
                                 </div>
 
@@ -199,6 +199,7 @@ function UserEditForm() {
 
                                 </div>
                                 <div>
+
                                     {updated && (
                                         <div>
                                             <span>{state.user.username} , </span>{" "}

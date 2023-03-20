@@ -17,8 +17,8 @@ function Products() {
       async function getProducts() {
         try {
           const resp = await axios.get(
-            "https://finger-board.onrender.com/api/v1/product/getProducts"
-            //"http://localhost:8080/api/v1/product/getProducts"
+            //"https://finger-board.onrender.com/api/v1/product/getProducts"
+            "http://localhost:8080/api/v1/product/getProducts"
           );
           setProducts(resp.data.products);
         } catch (error) {
@@ -33,8 +33,8 @@ function Products() {
   }, [hasMounted, products]);
 
   const logout = async () => {
-    //const logout_uri = "https://finger-board.onrender.com/api/v1/user/logout";
-    const logout_uri = "http://localhost:8080/api/v1/user/logout";
+    const logout_uri = "https://finger-board.onrender.com/api/v1/user/logout";
+    //const logout_uri = "http://localhost:8080/api/v1/user/logout";
 
     try {
       await axios.get(logout_uri);
@@ -50,7 +50,7 @@ function Products() {
   };
 
   const productCards = products.map((product,index) => {
-    return <ProductCard key={index} product={product} />;
+    return <ProductCard key={index} product={product} shopMode={true}/>;
   });
 
   return (
@@ -85,7 +85,7 @@ function Products() {
         </div>
       </header>
 
-      <div id="productDisplay" className="flex justify-evenly p-5">
+      <div id="productDisplay" className="flex justify-evenly p-5 mt-20">
         {products.length > 0 ? productCards : null}
       </div>
     </div>

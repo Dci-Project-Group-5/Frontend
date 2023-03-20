@@ -18,8 +18,8 @@ function Register() {
 
 
 
-  //const register_URL = "https://finger-board.onrender.com/api/v1/user/register";
-  const register_URL = "http://localhost:8080/api/v1/user/register";
+  const register_URL = "https://finger-board.onrender.com/api/v1/user/register";
+  //const register_URL = "http://localhost:8080/api/v1/user/register";
 
 
   const handleChange = (e) => {

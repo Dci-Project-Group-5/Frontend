@@ -74,6 +74,13 @@ button:focus-visible {
   
 }
 
+.sold-sign {
+  color: red;
+  font-size: 30px;
+  transform: rotateZ(-15deg);
+  margin: 10px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -301,13 +308,15 @@ header {
 #productDisplay {
   width: 100%;
   height: 600px;
-  margin-top: 100px;
   background-color: #213547;
 }
 
-/* #productCard {
-  height: 600px;
-} */
+#productCard {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .dashboard-container h1 {
   background-color: #f9f9f9;
   width: fit-content;
