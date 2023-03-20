@@ -63,7 +63,7 @@ function Products() {
         </div>
         <div>
           {state.isAuth ? (
-            <Link to="/dashboard">
+            <Link to="/">
               <button className="btn-register">
                 <i className="fa-solid fa-user"></i>
                 <span> {state.user.username}</span>
