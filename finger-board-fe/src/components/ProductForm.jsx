@@ -31,7 +31,8 @@ function ProductForm() {
             color: color,
             description: description,
             size: size,
-            price: price
+            price: price,
+            sold: false
         };
 
         console.log(body);
@@ -40,7 +41,6 @@ function ProductForm() {
                 let resp = await axios.post('https://finger-board.onrender.com/api/v1/product/saveProduct', body, {
                 //let resp = await axios.post('http://localhost:8080/api/v1/product/saveProduct', body, {    
                     headers: {"Content-Type" : "application/json"}
-                    // withCredentials: true
                 });
     
                 console.log(resp);
