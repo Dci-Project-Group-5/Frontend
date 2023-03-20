@@ -17,8 +17,8 @@ function Products() {
       async function getProducts() {
         try {
           const resp = await axios.get(
-            //"https://finger-board.onrender.com/api/v1/product/getProducts"
-            "http://localhost:8080/api/v1/product/getProducts"
+            "https://finger-board.onrender.com/api/v1/product/getProducts"
+            //"http://localhost:8080/api/v1/product/getProducts"
           );
           setProducts(resp.data.products);
         } catch (error) {
@@ -33,8 +33,8 @@ function Products() {
   }, [hasMounted, products]);
 
   const logout = async () => {
-    //const logout_uri = "https://finger-board.onrender.com/api/v1/user/logout";
-    const logout_uri = "http://localhost:8080/api/v1/user/logout";
+    const logout_uri = "https://finger-board.onrender.com/api/v1/user/logout";
+    //const logout_uri = "http://localhost:8080/api/v1/user/logout";
 
     try {
       await axios.get(logout_uri);
